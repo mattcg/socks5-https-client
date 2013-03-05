@@ -2,7 +2,7 @@
 	"name": "socks5-https-client",
 	"description": "SOCKS v5 HTTPS client.",
 	"version": "0.1.0",
-	"main": "lib/agent.js",
+	"main": "index.js",
 	"homepage": "https://github.com/mattcg/socks5-https-client",
 	"implements": ["CommonJS/Modules/1.0"],
 	"contributors": [
