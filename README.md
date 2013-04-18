@@ -6,4 +6,4 @@ Works great for making HTTPS requests through [Tor](https://www.torproject.org/)
 
 ## License ##
 
-Copyright © 2013 [Matthew Caruana Galizia](http://twitter.com/mcaruanagalizia), licensed under the MIT license (see LICENSE).
+Copyright © 2013 [Matthew Caruana Galizia](http://twitter.com/mcaruanagalizia), licensed under an [MIT license](http://mattcg.mit-license.org/).
