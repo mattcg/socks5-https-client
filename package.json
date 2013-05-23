@@ -17,7 +17,7 @@
 	"bugs": {
 		"url": "https://github.com/mattcg/socks5-https-client/issues"
 	},
-	"repositories": {
+	"repository": {
 		"type": "git",
 		"url": "https://github.com/mattcg/socks5-https-client.git"
 	},
