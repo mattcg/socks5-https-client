@@ -14,6 +14,9 @@
 var assert = require('assert');
 var https = require('../');
 
+var version = process.version.substr(1).split('.');
+var readableStreams = version[0] > 0 || version[1] > 8;
+
 suite('socks5-https-client tests', function() {
 	this.timeout(5000);
 
@@ -30,9 +33,15 @@ suite('socks5-https-client tests', function() {
 			assert.equal(res.statusCode, 200);
 			res.setEncoding('utf8');
 
-			res.on('readable', function() {
-				data += res.read();
-			});
+			if (readableStreams) {
+				res.on('readable', function() {
+					data += res.read();
+				});
+			} else {
+				res.on('data', function(chunk) {
+					data += chunk;
+				});
+			}
 
 			res.on('end', function() {
 				assert(-1 !== data.indexOf('<html'));
