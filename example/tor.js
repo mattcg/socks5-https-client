@@ -2,7 +2,7 @@
 
 /*jshint node:true*/
 
-var https = require('./index');
+var https = require('../');
 
 var options = {
 	socksPort: 9050, // Tor
