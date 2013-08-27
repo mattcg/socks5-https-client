@@ -15,7 +15,7 @@ var assert = require('assert');
 var https = require('../');
 
 suite('socks5-https-client tests', function() {
-	this.timeout(10000);
+	this.timeout(5000);
 
 	test('simple request', function(done) {
 		https.request({
@@ -40,6 +40,8 @@ suite('socks5-https-client tests', function() {
 
 				done();
 			});
+		}).on('error', function(err) {
+			assert.ifError(err);
 		}).end();
 	});
 });
