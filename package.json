@@ -26,7 +26,8 @@
 		"starttls": "0.x"
 	},
 	"devDependencies": {
-		"mocha": "1.x"
+		"mocha": "1.x",
+		"node-socks": "0.x"
 	},
 	"scripts": {
 		"test": "make test"
