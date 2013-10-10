@@ -7,7 +7,11 @@ SOCKS v5 HTTPS client implementation in JavaScript for Node.js.
 ```js
 var shttps = require('socks5-https-client');
 
-shttps.get('https://encrypted.google.com/', function(res) {
+shttps.get({
+	hostname: 'encrypted.google.com',
+	path: '/',
+	rejectUnauthorized: false
+}, function(res) {
 	res.setEncoding('utf8');
 	res.on('readable', function() {
 		console.log(res.read()); // Log response to console.
