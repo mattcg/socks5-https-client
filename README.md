@@ -10,7 +10,7 @@ var shttps = require('socks5-https-client');
 shttps.get({
 	hostname: 'encrypted.google.com',
 	path: '/',
-	rejectUnauthorized: false
+	rejectUnauthorized: false // True by default.
 }, function(res) {
 	res.setEncoding('utf8');
 	res.on('readable', function() {
@@ -18,6 +18,8 @@ shttps.get({
 	});
 });
 ```
+
+Specify the `socksHost` and `socksPort` options if your SOCKS server isn't running on `localhost:1080`. Tor runs its SOCKS server on port `9050` by default, for example.
 
 ## Using with Tor ##
 
