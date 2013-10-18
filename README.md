@@ -25,7 +25,7 @@ Works great for making HTTPS requests through [Tor](https://www.torproject.org/)
 
 ## HTTP ##
 
-This client only provides support for making HTTPS requests. See [socks5-http-client](https://github.com/mattcg/socks5-https-client) for an HTTP implementation.
+This client only provides support for making HTTPS requests. See [socks5-http-client](https://github.com/mattcg/socks5-http-client) for an HTTP implementation.
 
 ## License ##
 
