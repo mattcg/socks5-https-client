@@ -27,6 +27,24 @@ You may also pass a URL as the first argument to `get` or `request`, which will 
 
 Works great for making HTTPS requests through [Tor](https://www.torproject.org/) (see bundled example).
 
+## Using with Request ##
+
+To use with [Request](https://github.com/mikeal/request), just pass an agent instance.
+
+```js
+var Socks5ClientHttpsAgent = require('socks5-https-client/lib/Agent');
+
+request({
+	url: 'https://encrypted.google.com/',
+	agent: new Socks5ClientHttpsAgent({
+		socksHost: 'my-tor-proxy-host', // Defaults to 'localhost'.
+		socksPort: 9050 // Defaults to 1080.
+	})
+}, function(err, res) {
+	console.log(res);
+});
+```
+
 ## HTTP ##
 
 This client only provides support for making HTTPS requests. See [socks5-http-client](https://github.com/mattcg/socks5-http-client) for an HTTP implementation.
