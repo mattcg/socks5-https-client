@@ -22,8 +22,8 @@
 		"url": "https://github.com/mattcg/socks5-https-client.git"
 	},
 	"dependencies": {
-		"socks5-client": "0.x",
-		"starttls": "0.x"
+		"socks5-client": "~0.3.6",
+		"starttls": "~0.2.1"
 	},
 	"devDependencies": {
 		"mocha": "1.x",
