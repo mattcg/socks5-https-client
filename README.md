@@ -25,7 +25,9 @@ You may also pass a URL as the first argument to `get` or `request`, which will 
 
 ## Using with Tor ##
 
-Works great for making HTTPS requests through [Tor](https://www.torproject.org/) (see bundled example).
+Works great for making HTTPS requests through [Tor](https://www.torproject.org/).
+
+Make sure a Tor server is running locally and run `node example/tor https://check.torproject.org/` to test.
 
 ## Using with Request ##
 
