@@ -21,6 +21,8 @@ exports.request = function(options, cb) {
 		options = url.parse(options);
 	}
 
+	options.protocol = 'http:';
+
 	agent = new Socks5ClientHttpsAgent(options);
 	options.agent = agent;
 
