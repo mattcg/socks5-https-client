@@ -21,7 +21,13 @@ exports.request = function(options, cb) {
 		options = url.parse(options);
 	}
 
+	// Node v0.12.0 needs 'http:' for some reason.
 	options.protocol = 'http:';
+
+	// It also requires the port to be specified.
+	if (!options.port) {
+		options.port = 443;
+	}
 
 	agent = new Socks5ClientHttpsAgent(options);
 	options.agent = agent;

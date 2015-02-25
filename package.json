@@ -21,7 +21,7 @@
 	},
 	"dependencies": {
 		"socks5-client": "~1.0.0",
-		"starttls": "~0.2.1"
+		"starttls": "~1.0.0"
 	},
 	"devDependencies": {
 		"mocha": "~2.1.0",
