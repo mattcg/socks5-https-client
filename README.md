@@ -10,7 +10,7 @@ var shttps = require('socks5-https-client');
 shttps.get({
 	hostname: 'encrypted.google.com',
 	path: '/',
-	rejectUnauthorized: false // True by default.
+	rejectUnauthorized: true // This is the default.
 }, function(res) {
 	res.setEncoding('utf8');
 	res.on('readable', function() {
