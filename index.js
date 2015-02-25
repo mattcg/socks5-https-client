@@ -12,7 +12,7 @@
 var https = require('https');
 var url = require('url');
 
-var Socks5ClientHttpsAgent = require('./lib/Agent');
+var Agent = require('./lib/Agent');
 
 exports.request = function(options, cb) {
 	var agent, version;
@@ -21,20 +21,12 @@ exports.request = function(options, cb) {
 		options = url.parse(options);
 	}
 
-	// Node v0.12.0 needs 'http:' for some reason.
-	version = process.version.substr(1).split('.');
-	if (version[0] === '0' && version[1] === '12') {
-		options.protocol = 'http:';
-	} else {
-		options.protocol = 'https:';
-	}
-
-	// It also requires the port to be specified.
+	// Node v0.12.0 requires the port to be specified.
 	if (!options.port) {
 		options.port = 443;
 	}
 
-	agent = new Socks5ClientHttpsAgent(options);
+	agent = new Agent(options);
 	options.agent = agent;
 
 	return https.request(options, cb);

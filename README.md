@@ -34,16 +34,17 @@ Make sure a Tor server is running locally and run `node example/tor https://chec
 To use with [Request](https://github.com/mikeal/request), just pass an agent instance.
 
 ```js
-var Socks5ClientHttpsAgent = require('socks5-https-client/lib/Agent');
+var Agent = require('socks5-https-client/lib/Agent');
 
 request({
 	url: 'https://encrypted.google.com/',
-	agent: new Socks5ClientHttpsAgent({
+	agentClass: Agent,
+	agentOptions: {
 		socksHost: 'my-tor-proxy-host', // Defaults to 'localhost'.
 		socksPort: 9050 // Defaults to 1080.
-	})
+	}
 }, function(err, res) {
-	console.log(res);
+	console.log(err || res.body);
 });
 ```
 
