@@ -15,14 +15,19 @@ var url = require('url');
 var Socks5ClientHttpsAgent = require('./lib/Agent');
 
 exports.request = function(options, cb) {
-	var agent;
+	var agent, version;
 
 	if (typeof options === 'string') {
 		options = url.parse(options);
 	}
 
 	// Node v0.12.0 needs 'http:' for some reason.
-	options.protocol = 'http:';
+	version = process.version.substr(1).split('.');
+	if (version[0] === '0' && version[1] === '12') {
+		options.protocol = 'http:';
+	} else {
+		options.protocol = 'https:';
+	}
 
 	// It also requires the port to be specified.
 	if (!options.port) {
