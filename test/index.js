@@ -13,8 +13,10 @@
 
 var assert = require('assert');
 var net = require('net');
+var request = require('request');
 var socks = require('node-socks/socks.js');
 var https = require('../');
+var Agent = require('../lib/Agent');
 
 var version = process.version.substr(1).split('.');
 var readableStreams = version[0] > 0 || version[1] > 8;
@@ -24,7 +26,7 @@ suite('socks5-https-client tests', function() {
 
 	this.timeout(5000);
 
-	setup(function(done) {
+	suiteSetup(function(done) {
 		server = socks.createServer(function(socket, port, address, proxyReady) {
 			var proxy;
 
@@ -99,5 +101,23 @@ suite('socks5-https-client tests', function() {
 
 		// GET request, so end without sending any data.
 		req.end();
+	});
+
+	test('using request', function(done) {
+		var req;
+
+		request({
+			url: 'https://encrypted.google.com/',
+			agentClass: Agent,
+			strictSSL: true
+		}, function(err, res, data) {
+			assert.ifError(err);
+			assert.equal(res.statusCode, 200);
+
+			assert(-1 !== data.indexOf('<html'));
+			assert(-1 !== data.indexOf('</html>'));
+
+			done();
+		});
 	});
 });
