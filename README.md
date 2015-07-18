@@ -38,6 +38,7 @@ var Agent = require('socks5-https-client/lib/Agent');
 
 request({
 	url: 'https://encrypted.google.com/',
+	strictSSL: true,
 	agentClass: Agent,
 	agentOptions: {
 		socksHost: 'my-tor-proxy-host', // Defaults to 'localhost'.
