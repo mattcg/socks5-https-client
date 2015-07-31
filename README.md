@@ -31,7 +31,7 @@ Make sure a Tor server is running locally and run `node example/tor https://chec
 
 ## Using with Request ##
 
-To use with [Request](https://github.com/mikeal/request), just pass an agent instance.
+To use with [Request](https://github.com/mikeal/request), just pass a reference to the `Agent` constructor..
 
 ```js
 var Agent = require('socks5-https-client/lib/Agent');
