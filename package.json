@@ -33,10 +33,5 @@
 	"engines": {
 		"node": ">= 0.10.0"
 	},
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://mattcg.mit-license.org/"
-		}
-	]
+	"license": "MIT"
 }
