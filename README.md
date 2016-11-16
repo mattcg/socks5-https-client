@@ -21,6 +21,8 @@ shttps.get({
 
 Specify the `socksHost` and `socksPort` options if your SOCKS server isn't running on `localhost:1080`. Tor runs its SOCKS server on port `9050` by default, for example.
 
+Username and password authentication is supported with the `socksUsername` and `socksPassword` options.
+
 You may also pass a URL as the first argument to `get` or `request`, which will be parsed using `url.parse`.
 
 ## Using with Tor ##

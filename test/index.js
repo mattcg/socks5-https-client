@@ -18,9 +18,6 @@ var socks = require('node-socks/socks.js');
 var https = require('../');
 var Agent = require('../lib/Agent');
 
-var version = process.version.substr(1).split('.');
-var readableStreams = version[0] > 0 || version[1] > 8;
-
 suite('socks5-https-client tests', function() {
 	var server;
 
@@ -62,30 +59,16 @@ suite('socks5-https-client tests', function() {
 	test('simple request', function(done) {
 		var req;
 
-		req = https.request({
-			hostname: 'encrypted.google.com',
-			path: '/'
-		}, function(res, err) {
+		req = https.request('https://en.wikipedia.org/wiki/Main_Page', function(res, err) {
 			var data = '';
 
 			assert.ifError(err);
 			assert.equal(res.statusCode, 200);
 
 			res.setEncoding('utf8');
-
-			if (readableStreams) {
-
-				// The new way, using the readable stream interface (Node >= 0.10.0):
-				res.on('readable', function() {
-					data += res.read();
-				});
-			} else {
-
-				// The old way, using 'data' listeners (Node <= 0.8.22):
-				res.on('data', function(chunk) {
-					data += chunk;
-				});
-			}
+			res.on('readable', function() {
+				data += res.read();
+			});
 
 			res.on('end', function() {
 				assert(-1 !== data.indexOf('<html'));
