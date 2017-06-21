@@ -24,6 +24,10 @@ exports.request = function(options, cb) {
 	options.protocol = 'https:';
 
 	// Node v0.12.0 requires the port to be specified.
+	if (!options.port && options.host) {
+		options.port = options.host.split(':')[1];
+	}
+
 	if (!options.port) {
 		options.port = 443;
 	}
