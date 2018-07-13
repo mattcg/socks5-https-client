@@ -44,7 +44,11 @@ request({
 	agentClass: Agent,
 	agentOptions: {
 		socksHost: 'my-tor-proxy-host', // Defaults to 'localhost'.
-		socksPort: 9050 // Defaults to 1080.
+		socksPort: 9050, // Defaults to 1080.
+
+		// Optional credentials
+		socksUsername: 'proxyuser',
+		socksPassword: 'p@ssw0rd',
 	}
 }, function(err, res) {
 	console.log(err || res.body);
