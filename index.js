@@ -14,6 +14,8 @@ var url = require('url');
 
 var Agent = require('./lib/Agent');
 
+exports.Agent = Agent;
+
 exports.request = function(options, cb) {
 	var agent, version;
 
